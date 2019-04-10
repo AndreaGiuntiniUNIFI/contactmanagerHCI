@@ -19,6 +19,6 @@ cython                    0.29.6
 ### Examples images
 
 ![Home](../master/images/Home.png)
-![Home](../master/images/Single.png)
-![Home](../master/images/Add.png)
-![Home](../master/images/Search.png)
+![Single contact view](../master/images/Single.png)
+![Add contact](../master/images/Add.png)
+![Search contact](../master/images/Search.png)
