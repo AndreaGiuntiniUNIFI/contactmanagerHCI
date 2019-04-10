@@ -18,4 +18,7 @@ cython                    0.29.6
 
 ### Examples images
 
-![alt text](https://raw.githubusercontent.com/AndreaGiuntiniUNIFI/contactmanagerHCI/images/edit.jpg)
+![Home](../master/images/Home.png)
+![Home](../master/images/Single.png)
+![Home](../master/images/Add.png)
+![Home](../master/images/Search.png)
