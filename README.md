@@ -18,7 +18,18 @@ cython                    0.29.6
 
 ### Examples images
 
+#### View all contacts
+
 ![Home](../master/images/Home.png)
+
+#### View single contact
+
 ![Single contact view](../master/images/Single.png)
+
+#### Add a new contact
+
 ![Add contact](../master/images/Add.png)
+
+#### Search contact
+
 ![Search contact](../master/images/Search.png)
