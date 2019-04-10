@@ -1,0 +1,241 @@
+
+<mainScreen>:
+    ActionBar:
+        id: action
+        pos_hint: {'top':1 }
+        background_color:0,191,255,0.5
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: 'Contact manager'
+            ActionButton:
+                text: 'Add'
+                on_press: root.manager.current = 'add'
+            ActionButton:
+                text: 'Search'
+                on_press: root.manager.current = 'search'
+    DateGrid:
+        pos_hint: {'top': 0.85 + self.size_hint[1]/2}
+        id: dg1
+        cols: 4
+
+        Label:
+            text: 'Order contacts  :'
+
+        ImageButtonOrderAsc:
+            source: 'images/sort-asc.png'
+
+        ImageButtonOrderDesc:
+            source: 'images/sort-desc.png'
+
+        Label:
+            text: ''
+
+    DateGrid:
+        id: dg2
+        cols: 5
+        pos_hint: {'top': 0.75 + self.size_hint[1]/2}
+        Label:
+            text: 'NAME'
+        Label:
+            text: 'SURNAME'
+        Label:
+            text: 'EMAIL'
+        Label:
+            text: 'PHONE NUMBER'
+        Label:
+            text: ' '
+
+
+    DateGrid:
+        id: contacts
+
+
+<addContact>:
+    ActionBar:
+        pos_hint: {'top':1}
+        background_color:0,191,255,0.5
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: 'Contact manager'
+            ActionButton:
+                text: 'Contacts'
+                on_press: root.manager.current = 'main'
+            ActionButton:
+                text: 'Search'
+                on_press: root.manager.current = 'search'
+    DateGrid
+        cols: 1
+        id: grid
+        Label:
+            text: 'Insert new contact'
+            size_hint: .9, .5
+            pos_hint: {'top': 0.85 + self.size_hint[1]/2}
+
+
+        TextInput:
+            never_selected: False
+            write_tab: False
+            multiline: False
+            on_focus: if self.never_selected == False: self.text = ''; self.never_selected = True
+            id: name_input
+            text: 'Name'
+            size_hint: (0.5,0.3)
+
+        TextInput:
+            never_selected: False
+            write_tab: False
+            multiline: False
+            on_focus: if self.never_selected == False: self.text = ''; self.never_selected = True
+            id: surname_input
+            text: 'Surname'
+            size_hint: (0.5,0.3)
+
+        TextInput:
+            never_selected: False
+            write_tab: False
+            multiline: False
+            on_focus: if self.never_selected == False: self.text = ''; self.never_selected = True
+            id: email_input
+            text: 'Email'
+            size_hint: (0.5,0.3)
+
+        TextInput:
+            never_selected: False
+            write_tab: False
+            multiline: False
+            on_focus: if self.never_selected == False: self.text = ''; self.never_selected = True
+            id: phone_input
+            text: 'Phone number'
+            size_hint: (0.5,0.3)
+
+        TextInput:
+            never_selected: False
+            write_tab: False
+            multiline: False
+            on_focus: if self.never_selected == False: self.text = ''; self.never_selected = True
+            id: notes_input
+            text: 'Notes'
+            size_hint: (0.5,0.3)
+
+        Button:
+            text: 'Add !'
+            size_hint: (0.5,0.3)
+            on_press: root.callback()
+
+<searchContact>:
+    ActionBar:
+        id: action
+        pos_hint: {'top':1}
+        background_color:0,191,255,0.5
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: 'Contact manager'
+            ActionButton:
+                text: 'Contacts'
+                on_press: root.manager.current = 'main'
+            ActionButton:
+                text: 'Add'
+                on_press: root.manager.current = 'add'
+
+    DateGrid
+        id: dg1
+        pos_hint: {'top': 0.85 + self.size_hint[1]/2}
+        cols : 1
+        Label:
+            text: 'Search contacts : '
+
+    DateGrid
+        cols: 5
+        id: dg2
+        pos_hint: {'top': 0.80 + self.size_hint[1]/2}
+        Label:
+            text: 'Name'
+            valign: 'middle'
+
+        Label:
+            text: 'Surname'
+            valign: 'middle'
+
+        Label:
+            text: 'Email'
+            valign: 'middle'
+
+        Label:
+            text: 'Phone number'
+            valign: 'middle'
+
+        Label:
+            text: "<--Filters"
+
+    DateGrid
+        id: dg3
+        cols: 5
+
+        pos_hint: {'top': 0.75 + self.size_hint[1]/2}
+
+        CheckBox:
+            group: 'check'
+            id : chk_name
+            text: "name"
+
+        CheckBox:
+            group: 'check'
+            id : chk_surname
+            text: "surname"
+
+        CheckBox:
+            group: 'check'
+            id : chk_email
+            text: "email"
+
+        CheckBox:
+            group: 'check'
+            id : chk_phone
+            text: "phone"
+
+        Label:
+            text: ""
+
+    TextInput:
+        pos_hint: {'x': .2, 'top': 0.65 + self.size_hint[1]/2}
+        never_selected: False
+        write_tab: False
+        multiline: False
+        on_focus: if self.never_selected == False: self.text = ''; self.never_selected = True
+        id: searchvalue
+        size_hint: (0.6,0.1)
+
+    Button:
+        id: btn
+        pos_hint: {'x': .4,'top': .55}
+        size_hint : (.2,.1)
+        on_press: root.search()
+        text: "Search!"
+
+
+
+<viewContact>:
+
+    ActionBar:
+        pos_hint: {'top':1}
+        background_color:0,191,255,0.5
+        id: actionbar
+
+        ActionView:
+            use_separator: True
+
+            ActionPrevious:
+                title: 'Contact manager'
+            ActionButton:
+                text: 'Contacts'
+                on_press: root.manager.current = 'main'
+            ActionButton:
+                text: 'Add'
+                on_press: root.manager.current = 'add'
+            ActionButton:
+                text: 'Search'
+                on_press: root.manager.current = 'search'
+
